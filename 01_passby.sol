@@ -1,7 +1,5 @@
 pragma solidity ^0.5.0;
 
-
-// Adapt from Data location and assignment behaviour, Chapter 3, Solidity Documentation, Release 0.5.8
 contract PassBy {
     
     uint[] public publicStorageArray;
@@ -22,7 +20,7 @@ contract PassBy {
     
     
     // Shows that memory -> storage will pass by value, but same type will pass by referemce.
-    function f(uint[] memory memoryArray) public notEmptyArray(memoryArray) {
+    function f(uint[] memory memoryArray) public notEmptyArray(memoryArray) firstElementNot1Or2(memoryArray) {
         emit Logging("memoryArray", memoryArray);
         publicStorageArray = memoryArray;
         emit Logging("publicStorageArray", publicStorageArray);
